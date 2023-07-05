@@ -1,0 +1,161 @@
+.body {
+    font-family: 'Poppins';
+}
+/* Login */
+/* Login */
+* {
+    font-family: 'Poppins';
+}
+
+.sidebar {
+    background-color:#5c6bc0;
+    color: #000;
+}
+
+.card{
+    background-color:#5c6bc0;
+    width: 350px;
+    height: 300px;
+    margin-left: 450px;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+
+/* Login */
+.card-login{
+    background-color:#5c6bc0;
+    width: 350px;
+    height: 300px;
+    margin-left: 450px;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+
+.login-header{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 20px;
+}
+
+.formlogin{
+    padding-left: 30px;
+}
+
+.label-nim{
+    margin-left:55px;
+    margin-bottom:20px;
+}
+
+.label-email{
+    margin-left:45px;
+    margin-bottom:20px;
+}
+
+.label-password{
+    margin-left:21px;
+}
+
+/*Register*/
+
+.card-register{
+    background-color:#5c6bc0;
+    width: 400px;
+    height: 420px;
+    margin-left: 450px;
+    margin-top: 90px;
+    border-radius: 8px;
+}
+.form-email-register{
+    margin-left: 90px;
+}
+.form-password-register{
+    margin-left: 65px;
+    margin-Top: 20px;
+}
+.form-name-register{
+    margin-left: 25px;
+    margin-Top: 10px;
+}
+.form-nim-register{
+    margin-left: 100px;
+    margin-Top: 20px;
+}
+.register-header{
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 10px;
+    margin-top: 15px;
+}
+/*Content*/
+.card-content{
+    width: 300px;
+    height: 150px;
+}
+
+/*Pendaftaran*/
+
+.card-pendaftaran{
+    background-color:#5c6bc0;
+    width: 400px;
+    height: 420px;
+    margin-left: 450px;
+    margin-top: 90px;
+    border-radius: 8px;
+}
+.form-email{
+    margin-left: 90px;
+}
+.form-photo-profil{
+    margin-left: 144px;
+    margin-Top: 20px;
+}
+.form-transfer{
+    margin-left: 55px;
+    margin-Top: 20px;
+}
+.form-name{
+    margin-left: 80px;
+    margin-Top: 10px;
+}
+.form-nim{
+    margin-left: 151px;
+    margin-Top: 20px;
+}
+.form-prodi{
+    margin-left: 147px;
+    margin-Top: 60px;
+}
+.form-tahun{
+    margin-left: 89px;
+    margin-Top: 20px;
+}
+.pendaftaran-header{
+    text-align: center;
+    font-size: 24px;
+    color: #000;
+    padding-bottom: 10px;
+    margin-top: 15px;
+}
+
+/*Regist Mahasiswa */
+
+.card-item{
+    width: 300px;
+    height: 150px;
+    margin-left: 20px;
+    margin-top: 100px;
+    border-radius: 8px;
+}
+.card-left{
+    width: 300px;
+    height: 150px;
+}
+
+.card-right{
+    width: 150px;
+    height: 100px;
+}
+

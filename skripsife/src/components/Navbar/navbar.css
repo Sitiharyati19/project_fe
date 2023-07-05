@@ -1,0 +1,53 @@
+body {
+    font-family: Helvetica;
+    overflow-x: hidden;
+}
+
+
+/* Navbar Start */
+.bg-all {
+    background-color: #F1F3FF;
+}
+
+.bg-btn {
+    background-color: #5CB85F;
+    color: white;
+}
+
+.navbar-loc {
+    margin: 0% 6%;
+}
+
+.brand {
+    background-color: #0D28A6;
+    width: 100px;
+    height: 34px;
+    margin-left: 6%;
+}
+
+.off-navbar {
+    width: 50%;
+}
+
+.tittle {
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 25%;
+}
+
+.content {
+    font-size: 14px;
+    padding-right: 80px;
+}
+
+.nav-link {
+    color: black;
+    padding-right: 10px;
+}
+
+
+/* Navbar End */
+
+
+/*=========================================================*/
+

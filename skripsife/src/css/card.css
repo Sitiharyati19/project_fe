@@ -1,0 +1,26 @@
+.body {
+    font-family: 'Poppins';
+}
+/* Login */
+/* Login */
+* {
+    font-family: 'Poppins';
+}
+
+.left {
+    width: 300px;
+    height: 150px;
+}
+
+.right {
+    width: 300px;
+    height: 150px;
+    margin-left: 120px;
+    margin-top: -110px;
+}
+
+.link:hover{
+    background: #e3f2fd;
+    color: #212121;
+    transition: all 0.5s;
+  }

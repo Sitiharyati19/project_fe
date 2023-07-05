@@ -1,0 +1,32 @@
+.body {
+    font-family: 'Poppins';
+}
+/* Login */
+/* Login */
+* {
+    font-family: 'Poppins';
+}
+
+.left {
+    width: 300px;
+    height: 150px;
+}
+
+.mid {
+    width: 300px;
+    height: 150px;
+    margin-left: 45vh;
+    margin-top: -110px;
+}
+
+.right {
+    width: 100px;
+    height: 150px;
+    margin-top: -150px;
+}
+
+.qrbarcode {
+    width: 50px;
+    height: 50px;
+    margin-top: -110px;
+}
