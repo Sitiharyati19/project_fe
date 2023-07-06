@@ -6,7 +6,6 @@ import{
 import QRCode from "react-qr-code";
 import React, { useState, useEffect } from "react";
 import SidebarMahasiswa from '../components/sidebarMahasiswa';
-import ContentRegist from '../components/content/contentRegist';
 import QrCode from '../components/content/qrcode';
 import { getListUser } from "../redux/actions/getUser";
 import { useSelector, useDispatch } from 'react-redux';

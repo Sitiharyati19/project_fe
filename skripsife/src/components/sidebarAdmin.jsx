@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import {
     FaHome,
     FaUserGraduate,
@@ -13,6 +13,33 @@ import { NavLink } from "react-router-dom";
 
 const SidebarAdmin = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [data, setData] = useState({});
+    useEffect(() => {
+
+        const getAdmins = async () => {
+
+            try {
+                const token = localStorage.getItem("token");
+                const responseUsers = await axios.get(`http://localhost:3000/api/admin/who-am-i`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
+
+                const dataUsers = await responseUsers.data;
+                console.log(dataUsers)
+
+                setData(dataUsers)
+                console.log(setData)
+
+            } catch (err) {
+                setIsLoggedIn(false);
+            };
+
+        }
+        getAdmins();
+    });
     const toggle = () => setIsOpen(!isOpen);
     const menuItem = [
         {

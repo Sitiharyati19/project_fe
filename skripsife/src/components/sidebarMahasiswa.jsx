@@ -11,11 +11,38 @@ import logo from "../images/logo-main-2.png";
 import { NavLink } from "react-router-dom";
 import { getListUser } from "../redux/actions/getUser"
 import { useSelector, useDispatch } from 'react-redux';
+import { userLogout } from "../redux/actions/logout";
 
 const SidebarMahasiswa = ({ children }) => {
     const dispatch = useDispatch();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
+    const [user, setUser] = useState([]);
 
+    const logout = () => {
+        dispatch(userLogout());
+        window.location.href= '/login'
+    }
+
+    const getUsers = async () => {
+
+        try {
+            const token = localStorage.getItem("token");
+            const responseUsers = await axios.get(`http://localhost:3000/api/mahasiswa/who-am-i`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+
+            const dataUsers = await responseUsers.data;
+            console.log(dataUsers)
+
+            setUser(dataUsers)
+
+        } catch (err) {
+            setIsLoggedIn(false);
+        };
+    }
     const toggle = () => setIsOpen(!isOpen);
     const menuItem = [
         {
@@ -29,7 +56,7 @@ const SidebarMahasiswa = ({ children }) => {
             icon: <FaRegListAlt />
         },
         {
-            path: `/barcode`,
+            path: `/barcode/:id`,
             name: "QR Code",
             icon: <RiBarcodeBoxLine />
         },
@@ -39,11 +66,13 @@ const SidebarMahasiswa = ({ children }) => {
             icon: <RiBarcodeBoxLine />
         },
         {
-            path: "/login",
+            path: '/login',
+            onclick: {logout},
             name: "logout",
             icon: <CgLogOut/>
         }
     ]
+    getUsers()
 
     return (
         <div className="container">

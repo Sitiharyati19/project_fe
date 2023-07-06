@@ -8,18 +8,19 @@ import '../../css/qrcode.css';
 import QRCode from 'react-qr-code';
 
 function QrCode() {
-    const { id } = useParams();
-    const [user, setUser] = useState({});
+    const params = useParams() 
+    const [user, setUser] = useState([]);
+    const [product, setProduct] = useState({});
     const [data, setData] = useState({});
-    const [userData, setUserData] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     // const [imageUrl, setImageUrl] = useState('');
     // const [text, setText] = useState('');
 
     // console.log(bookUser)
-    console.log(user)
-    console.log(data.mahasiswa)
-    console.log(userData)
+    // console.log(user)
+    console.log(params.id)
+
+    // console.log(userData)
     
     const cardContent = {
         display :"flex",
@@ -33,27 +34,6 @@ function QrCode() {
         border: '3px solid #9fa8da'
     }
 
-    const cardTitle = {
-        fontSize: "15px",
-        fontWeight: 'bold',
-        color: 'black',
-        marginLeft: "20px",
-        marginTop: "10px"
-    }
-
-    const colourButton = {
-        backgroundColor: '#9fa8da',
-        borderRadius: '8px',
-        border: '1px solid #9fa8da',
-        marginTop:"-20px",
-        width:"150px",
-        height:"30px",
-        marginLeft:"82vh",
-        fontWeight:"bold",
-        fontSize:"14px",
-        marginRight: "40px",
-      }
-
     const Cardcontent1 = {
         width: '200px',
         height: '250px',
@@ -61,7 +41,6 @@ function QrCode() {
         marginTop: "50px",
     }
 
-  useEffect(() => {
         const getUsers = async () => {
 
             try {
@@ -83,7 +62,22 @@ function QrCode() {
             };
         }
 
-        // const generateQrCode = async () => {
+    useEffect(() => {
+    const getData = async () => {
+        const token = localStorage.getItem("token");
+        const response = await axios.get(`http://localhost:3000/api/booking/${params.id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        console.log(response.data.mahasiswa);
+
+        const data = await response.data.mahasiswa;
+        setData(data);
+        console.log(data)
+        
+    };
+            // const generateQrCode = async () => {
         //     try {
         //           const response = await QRCode.toDataURL(text);
         //           setImageUrl(response);
@@ -92,34 +86,10 @@ function QrCode() {
         //     }
         //   }
 
-        getUsers();
-        
-      
-    }, [id]);
-
-    const getData = async () => {
-        const token = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:3000/api/booking/1`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-        console.log(response.data.data.mahasiswa);
-
-        const data = await response.data.data;
-        const userData = await response.data.data.mahasiswa
-        setData(data);
-        setUserData(userData.data);
-        console.log(data)
-        
-    };
-
     getData();
+    getUsers();
+},[params.id]);
 
-    // const [show, setShow] = useState(false);
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     return isLoggedIn ? (
         <>
@@ -156,6 +126,13 @@ function QrCode() {
                                         <a href={imageUrl} download>
                                         <img src={imageUrl} alt="img" style={{marginTop:"-500px", width:"200px",marginLeft:"82vh"}}/>
                                         </a>) : null}
+
+                                        <QRCode
+                                         size={256}
+                                        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                                        value={value}
+                                        viewBox={`0 0 256 256`}
+                                        />
                                         <input type="text" onChange={(e) => setText(e.target.value)}></input>
                                             <Button style={colourButton} onClick={() => generateQrCode()}>Create Your QR Code</Button>
                                         </Col>

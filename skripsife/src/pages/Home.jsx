@@ -7,10 +7,10 @@ import { Card, Row, Col } from 'react-bootstrap';
 const Home = () => {
 
     return (
-        <Sidebar>
+        <SidebarMahasiswa>
             <Carousel />
             <Content />
-        </Sidebar>
+        </SidebarMahasiswa>
     )
 }
 
